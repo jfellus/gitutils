@@ -1,6 +1,8 @@
 #!/bin/bash
 
 for i in `ls -d *`; do
+	if [ ! -d "$i" ]; then continue; fi
+	if [ ! -d "$i/.git" ]; then continue; fi	
 	echo "IN $i"
 	cd $i
 	git status | grep "modified:"
